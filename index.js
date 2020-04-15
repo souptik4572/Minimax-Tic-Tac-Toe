@@ -134,21 +134,29 @@ let tableData = document.querySelectorAll("td");
 let won = false;
 let userMark = 'X';
 let computerMark = 'O';
+let startedPlaying = false;
 cross.addEventListener("click", function(){
-    userMark = "X";
-    computerMark = "O";
-    this.classList.toggle("cross-select");
+    if(!startedPlaying){
+        userMark = "X";
+        computerMark = "O";
+        this.classList.toggle("cross-selected");
+    }
 });
 naught.addEventListener("click", function(){
-    userMark = "O";
-    computerMark = "X";
-    this.classList.toggle("naught-select");
-    play(blockArray);
+    if(!startedPlaying){
+        userMark = "O";
+        computerMark = "X";
+        this.classList.toggle("naught-selected");
+        cross.classList.remove("cross-selected");
+        play(blockArray);
+        startedPlaying = true;
+    }
 });
 let winner;
 let declareWinner = document.getElementById("declare");
 for(let i=0; i<tableData.length; i++){
     tableData[i].addEventListener("click", function(){
+        startedPlaying = true;
         if((blockArray[i].charCodeAt(0)>=97 && blockArray[i].charCodeAt(0)<=105) && !won){
             this.textContent = userMark;
             blockArray[i] = userMark;

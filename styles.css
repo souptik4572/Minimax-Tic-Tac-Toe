@@ -9,18 +9,24 @@ table tr td{
     width: 100px;
     height: 100px;
     /* border: 1px solid red; */
-    font-size: 35px;
+    font-size: 50px;
+    font-family: 'Comic Neue', cursive;
+    font-style: normal;
     text-align: center;
 }
 button{
     margin: 0 5%;
+    width: 10%;
+    height: 5%;
     outline: none;
+    border: none;
+    font-family: 'Comic Neue', cursive;
 }
 .rows{
-    border-right: 1px solid rgba(192, 122, 122, 0.575);
+    border-right: 1px solid #232323;
 }
 .cols{
-    border-bottom: 1px solid rgba(192, 122, 122, 0.575);
+    border-bottom: 1px solid #232323;
 }
 .page-header{
     text-align: center;
@@ -32,6 +38,16 @@ button{
 .naught-select{
     background: white;
     color: #5CB85C;
+}
+.cross-selected{
+    background: white;
+    color: #D9534F;
+    border: 1px solid #D9534F;
+}
+.naught-selected{
+    background: white;
+    color: #5CB85C;
+    border: 1px solid #5CB85C;
 }
 #declare{
     color: black;
