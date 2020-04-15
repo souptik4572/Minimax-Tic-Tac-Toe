@@ -135,13 +135,13 @@ let won = false;
 let userMark = 'X';
 let computerMark = 'O';
 let startedPlaying = false;
-cross.addEventListener("click", function(){
-    if(!startedPlaying){
-        userMark = "X";
-        computerMark = "O";
-        this.classList.toggle("cross-selected");
-    }
-});
+// cross.addEventListener("click", function(){
+//     if(!startedPlaying){
+//         userMark = "X";
+//         computerMark = "O";
+//         this.classList.toggle("cross-selected");
+//     }
+// });
 naught.addEventListener("click", function(){
     if(!startedPlaying){
         userMark = "O";
