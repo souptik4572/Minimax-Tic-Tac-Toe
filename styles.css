@@ -1,55 +1,79 @@
-/* .game{
-    width: 50%;
-    height: 50%;
-} */
+body{
+    background: url("https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover;
+    background-position: center;
+}
+.btn-primary{
+    outline: none;
+    background: lightblue;
+    color: black;
+    border: none;
+}
 table{
     margin: 5% auto;
 }
+.page-header{
+    color: black;
+}
 table tr td{
-    width: 100px;
-    height: 100px;
-    /* border: 1px solid red; */
+    width: 90px;
+    height: 90px;
     font-size: 50px;
-    font-family: 'Comic Neue', cursive;
+    font-family: 'Raleway';
     font-style: normal;
     text-align: center;
 }
-button{
+table tr td:hover{
+    background-color: rgba(255, 255, 255, 0.418);
+    border-radius: 8%;
+}
+.cross, .naught{
+    background-color: transparent;
+    font-style: "Semi-Bold";
     margin: 0 5%;
     width: 10%;
     height: 5%;
     outline: none;
     border: none;
-    font-family: 'Comic Neue', cursive;
+    font-size: 20px;
+    font-family: 'Raleway';
 }
+
 .rows{
-    border-right: 1px solid #232323;
+    border-right: 2px solid #232323;
 }
 .cols{
-    border-bottom: 1px solid #232323;
+    border-bottom: 2px solid #232323;
 }
 .page-header{
     text-align: center;
 }
 .cross-select{
-    background: white;
     color: #D9534F;
+    font-weight: 700;
 }
 .naught-select{
-    background: white;
     color: #5CB85C;
+    font-weight: 700;
 }
 .cross-selected{
-    background: white;
+    background-color: transparent;
     color: #D9534F;
     border: 1px solid #D9534F;
 }
 .naught-selected{
-    background: white;
+    background-color: transparent;
     color: #5CB85C;
     border: 1px solid #5CB85C;
 }
 #declare{
     color: black;
     font-size: large;
+}
+.container{
+    background: rgba(255, 255, 255, 0.288);
+    text-align: center;
+}
+.reset{
+    margin: 2% auto;
 }

@@ -31,7 +31,6 @@ function minimax(blockArray, depth, isPlayer){
             best = Math.max(best, minimax(blockArray, depth+1, !isPlayer));
             blockArray[moves[i]] = temp;
         }
-        return best;
     }
     else{
         best = Infinity;
@@ -41,8 +40,8 @@ function minimax(blockArray, depth, isPlayer){
             best = Math.min(best, minimax(blockArray, depth+1, !isPlayer));
             blockArray[moves[i]] = temp;
         }
-        return best;
     }
+    return best;
 }
 
 function emptyPlaces(blockArray){
@@ -112,7 +111,6 @@ function play(blockArray){
         else
             tableData[randomPosition].classList.add("cross-select");
         blockArray[randomPosition] = computerMark;
-        console.log(blockArray[randomPosition]);
         let winningPlayer = winningLogic(blockArray);
         if(winningPlayer === 10 || winningPlayer === -10)
             won = true;
@@ -127,21 +125,34 @@ function play(blockArray){
     }
 }
 
+function start(){
+    won = false;
+    declareWinner.textContent = '';
+    userMark = 'X';
+    computerMark = 'O';
+    startedPlaying = false;
+    for(let i=0; i<blockArray.length; i++){
+        blockArray[i] = blockArrayDup[i];
+        tableData[i].textContent = '';
+        tableData[i].classList.remove("cross-select");
+        tableData[i].classList.remove("naught-select");
+    }
+    naught.classList.remove("naught-selected");
+    cross.classList.add("cross-selected");
+}
+
 let blockArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
+let blockArrayDup = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
 let cross = document.querySelector(".cross");
 let naught = document.querySelector(".naught");
 let tableData = document.querySelectorAll("td");
-let won = false;
-let userMark = 'X';
-let computerMark = 'O';
-let startedPlaying = false;
-// cross.addEventListener("click", function(){
-//     if(!startedPlaying){
-//         userMark = "X";
-//         computerMark = "O";
-//         this.classList.toggle("cross-selected");
-//     }
-// });
+let reset = document.querySelector(".reset");
+let won;
+let userMark;
+let computerMark;
+let startedPlaying;
+let winner;
+let declareWinner = document.getElementById("declare");
 naught.addEventListener("click", function(){
     if(!startedPlaying){
         userMark = "O";
@@ -152,8 +163,11 @@ naught.addEventListener("click", function(){
         startedPlaying = true;
     }
 });
-let winner;
-let declareWinner = document.getElementById("declare");
+reset.addEventListener("click", function(){
+    start();
+    console.log(won);
+});
+start();
 for(let i=0; i<tableData.length; i++){
     tableData[i].addEventListener("click", function(){
         startedPlaying = true;
@@ -164,11 +178,9 @@ for(let i=0; i<tableData.length; i++){
                 this.classList.add("cross-select");
             else
                 this.classList.add("naught-select");
-            console.log(blockArray);
             if(winningLogic(blockArray)){
                 winner = winningLogic(blockArray);
                 won = true;
-                console.log(winner);
             }
             else
                 winner = play(blockArray);
